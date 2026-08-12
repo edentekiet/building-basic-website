@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#0f172a}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#0f172a;color:white;padding:12px 14px}
+.badge{background:#ccfbf1;color:#115e59;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700}
+.task{padding:11px 14px;background:#ecfeff;border-bottom:1px solid #99f6e4;font-size:14px}
+.actions{display:flex;gap:7px}button{border:0;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer}.run{background:#14b8a6}.reset{background:#e2e8f0}
+.editors{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px}
+label{display:block;font-size:12px;font-weight:800;margin-bottom:4px}textarea{width:100%;height:220px;resize:vertical;border:1px solid #cbd5e1;border-radius:8px;padding:9px;background:#0b1220;color:#e2e8f0;font:12.5px/1.45 ui-monospace,Consolas,monospace;tab-size:2}
+.preview{padding:0 8px 8px}.preview-head{display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin:3px 0 5px}#status{font-weight:400;color:#64748b}iframe{width:100%;height:300px;border:1px solid #cbd5e1;border-radius:8px;background:white}
+@media(max-width:760px){.editors{grid-template-columns:1fr}textarea{height:160px}}
+</style>
+<style>
+html,body{font-family:Arial,Helvetica,sans-serif!important;color:#233247!important}
+body{background:#fff!important}
+button{border-radius:8px!important}
+</style>
+</head><body>
+<div class="bar"><span class="badge">Debugging Practice</span><div class="actions"><button class="run" id="run" type="button">Run</button><button class="reset" id="reset" type="button">Reset</button></div></div>
+<div class="task"><strong>Try it:</strong> Fix one HTML error, one CSS connection error, and one JavaScript ID error.</div>
+<div class="editors">
+<div><label>HTML</label><textarea id="h" spellcheck="false"></textarea></div>
+<div><label>CSS</label><textarea id="c" spellcheck="false"></textarea></div>
+<div><label>JAVASCRIPT</label><textarea id="j" spellcheck="false"></textarea></div>
+</div>
+<div class="preview"><div class="preview-head"><span>OUTPUT PREVIEW</span><span id="status">Updates as you type</span></div><iframe id="p" title="Live code output" sandbox="allow-scripts allow-forms allow-modals allow-popups"></iframe></div>
+<script>
+const S_H="<main>\n  <section class=\"practice-card\">\n    <h1>Debug My Page<h1>\n    <p id=\"practiceMessage\">Click the button.</p>\n    <button id=\"tipButton\">Show a tip</button>\n  </section>\n</main>",S_C=".practice { padding: 24px; background: #ecfeff; }\nbutton { padding: 10px 14px; }",S_J="const button = document.getElementById(\"tipsButton\");\nconst message = document.getElementById(\"practiceMessage\");\nbutton.addEventListener(\"click\", function () {\n  message.textContent = \"Fixed!\";\n});";
+const H=document.getElementById("h"),C=document.getElementById("c"),J=document.getElementById("j"),P=document.getElementById("p"),status=document.getElementById("status");
+let timer;
+function doc(){
+  const hv=H.value, css=C.value.replace(/<\/style/gi,"<\\/style"), js=JSON.stringify(J.value);
+  const style="<style>"+css+"</style>";
+  const runner=`<script>
+    const e=document.createElement("pre");e.style.cssText="display:none;white-space:pre-wrap;background:#fff1f2;color:#9f1239;padding:10px;border:1px solid #fecdd3;border-radius:8px;margin:12px;font:12px/1.4 monospace";document.body.appendChild(e);
+    window.addEventListener("error",x=>{e.style.display="block";e.textContent="JavaScript error: "+x.message});
+    try{(new Function(${js}))()}catch(x){e.style.display="block";e.textContent="JavaScript error: "+x.message}
+  <\/script>`;
+  if(/<!doctype|<html[\s>]/i.test(hv)){
+    let d=hv;
+    d=/<\/head>/i.test(d)?d.replace(/<\/head>/i,style+"</head>"):style+d;
+    d=/<\/body>/i.test(d)?d.replace(/<\/body>/i,runner+"</body>"):d+runner;
+    return d;
+  }
+  return "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"+style+"</head><body>"+hv+runner+"</body></html>";
+}
+function run(){P.srcdoc=doc();status.textContent="Preview updated";setTimeout(()=>status.textContent="Updates as you type",800)}
+function schedule(){clearTimeout(timer);status.textContent="Updating…";timer=setTimeout(run,260)}
+function reset(){H.value=S_H;C.value=S_C;J.value=S_J;run()}
+[H,C,J].forEach(x=>x.addEventListener("input",schedule));document.getElementById("run").addEventListener("click",run);document.getElementById("reset").addEventListener("click",reset);reset();
+</script></body></html>

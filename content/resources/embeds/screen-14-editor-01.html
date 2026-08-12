@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#0f172a}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#0f172a;color:white;padding:12px 14px}
+.badge{background:#ccfbf1;color:#115e59;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700}
+.task{padding:11px 14px;background:#ecfeff;border-bottom:1px solid #99f6e4;font-size:14px}
+.actions{display:flex;gap:7px}button{border:0;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer}.run{background:#14b8a6}.reset{background:#e2e8f0}
+.editors{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px}
+label{display:block;font-size:12px;font-weight:800;margin-bottom:4px}textarea{width:100%;height:220px;resize:vertical;border:1px solid #cbd5e1;border-radius:8px;padding:9px;background:#0b1220;color:#e2e8f0;font:12.5px/1.45 ui-monospace,Consolas,monospace;tab-size:2}
+.preview{padding:0 8px 8px}.preview-head{display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin:3px 0 5px}#status{font-weight:400;color:#64748b}iframe{width:100%;height:300px;border:1px solid #cbd5e1;border-radius:8px;background:white}
+@media(max-width:760px){.editors{grid-template-columns:1fr}textarea{height:160px}}
+</style>
+<style>
+html,body{font-family:Arial,Helvetica,sans-serif!important;color:#233247!important}
+body{background:#fff!important}
+button{border-radius:8px!important}
+</style>
+</head><body>
+<div class="bar"><span class="badge">JavaScript Guided Practice</span><div class="actions"><button class="run" id="run" type="button">Run</button><button class="reset" id="reset" type="button">Reset</button></div></div>
+<div class="task"><strong>Try it:</strong> Make the button update the message and then change its own label.</div>
+<div class="editors">
+<div><label>HTML</label><textarea id="h" spellcheck="false"></textarea></div>
+<div><label>CSS</label><textarea id="c" spellcheck="false"></textarea></div>
+<div><label>JAVASCRIPT</label><textarea id="j" spellcheck="false"></textarea></div>
+</div>
+<div class="preview"><div class="preview-head"><span>OUTPUT PREVIEW</span><span id="status">Updates as you type</span></div><iframe id="p" title="Live code output" sandbox="allow-scripts allow-forms allow-modals allow-popups"></iframe></div>
+<script>
+const S_H="<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>My Web Learning Page</title>\n</head>\n<body>\n  <header>\n    <p>MY FIRST WEBPAGE</p>\n    <h1>My Web Learning Page</h1>\n    <p>A simple page that will grow throughout this module.</p>\n    <nav aria-label=\"Main navigation\">\n      <a href=\"#about\">About</a>\n      <a href=\"#resources\">Resources</a>\n    </nav>\n  </header>\n\n  <main>\n    <section id=\"about\">\n      <h2>What I am learning</h2>\n      <p>HTML creates structure, CSS controls appearance, and JavaScript adds interaction.</p>\n      <img src=\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22760%22%20height%3D%22300%22%3E%0A%3Crect%20width%3D%22760%22%20height%3D%22300%22%20rx%3D%2224%22%20fill%3D%22%23ecfeff%22/%3E%0A%3Crect%20x%3D%2270%22%20y%3D%2290%22%20width%3D%22180%22%20height%3D%22120%22%20rx%3D%2218%22%20fill%3D%22%230f766e%22/%3E%0A%3Crect%20x%3D%22290%22%20y%3D%2290%22%20width%3D%22180%22%20height%3D%22120%22%20rx%3D%2218%22%20fill%3D%22%232563eb%22/%3E%0A%3Crect%20x%3D%22510%22%20y%3D%2290%22%20width%3D%22180%22%20height%3D%22120%22%20rx%3D%2218%22%20fill%3D%22%23b45309%22/%3E%0A%3Ctext%20x%3D%22160%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22white%22%3EHTML%3C/text%3E%0A%3Ctext%20x%3D%22380%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22white%22%3ECSS%3C/text%3E%0A%3Ctext%20x%3D%22600%22%20y%3D%22160%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22white%22%3EJS%3C/text%3E%0A%3Cpath%20d%3D%22M250%20150h40M470%20150h40%22%20stroke%3D%22%23334155%22%20stroke-width%3D%228%22/%3E%0A%3C/svg%3E\" alt=\"Three connected blocks labeled HTML, CSS, and JS\">\n    </section>\n\n    <section class=\"practice-card\">\n      <h2>Today's practice goal</h2>\n      <p id=\"practiceMessage\">Click the button for a practice tip.</p>\n      <button id=\"tipButton\" type=\"button\">Show a tip</button>\n    </section>\n\n    <section id=\"resources\">\n      <h2>Practice resources</h2>\n      <ul>\n        <li><a href=\"https://developer.mozilla.org/en-US/docs/Learn_web_development\" target=\"_blank\" rel=\"noopener\">MDN Web Development</a></li>\n        <li><a href=\"https://www.w3schools.com/html/\" target=\"_blank\" rel=\"noopener\">W3Schools HTML Tutorial</a></li>\n      </ul>\n    </section>\n  </main>\n\n  <footer>\n    <p>Built one step at a time.</p>\n  </footer>\n</body>\n</html>",S_C="* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  color: #0f172a;\n  background: #f1f5f9;\n  line-height: 1.6;\n}\n\nheader {\n  background: linear-gradient(135deg, #0f172a, #0f766e);\n  color: white;\n  padding: 54px 24px;\n}\n\nheader > * {\n  max-width: 900px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\nheader h1 {\n  font-size: clamp(2.2rem, 6vw, 3.5rem);\n  margin-top: 6px;\n  margin-bottom: 8px;\n}\n\nnav {\n  margin-top: 20px;\n}\n\nnav a {\n  display: inline-block;\n  color: white;\n  font-weight: bold;\n  margin-right: 18px;\n}\n\nmain,\nfooter {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 24px;\n}\n\nsection {\n  background: white;\n  margin: 20px 0;\n  padding: 28px;\n  border-radius: 16px;\n  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);\n}\n\nimg {\n  width: 100%;\n  height: auto;\n  border-radius: 12px;\n}\n\na {\n  color: #0f766e;\n}\n\n@media (max-width: 600px) {\n  header {\n    padding: 36px 18px;\n  }\n\n  main,\n  footer {\n    padding: 18px;\n  }\n\n  section {\n    padding: 20px;\n  }\n}\n\n.practice-card {\n  border-left: 6px solid #0f766e;\n}\n\nbutton {\n  border: 0;\n  border-radius: 10px;\n  padding: 12px 18px;\n  background: #0f766e;\n  color: white;\n  font-weight: bold;\n  cursor: pointer;\n}\n\nbutton:hover,\nbutton:focus {\n  background: #115e59;\n}",S_J="const button = document.getElementById(\"tipButton\");\nconst message = document.getElementById(\"practiceMessage\");\n\nbutton.addEventListener(\"click\", function () {\n  message.textContent =\n    \"Practice tip: change one thing, run the page, and observe what changed.\";\n  button.textContent = \"Tip shown!\";\n});";
+const H=document.getElementById("h"),C=document.getElementById("c"),J=document.getElementById("j"),P=document.getElementById("p"),status=document.getElementById("status");
+let timer;
+function doc(){
+  const hv=H.value, css=C.value.replace(/<\/style/gi,"<\\/style"), js=JSON.stringify(J.value);
+  const style="<style>"+css+"</style>";
+  const runner=`<script>
+    const e=document.createElement("pre");e.style.cssText="display:none;white-space:pre-wrap;background:#fff1f2;color:#9f1239;padding:10px;border:1px solid #fecdd3;border-radius:8px;margin:12px;font:12px/1.4 monospace";document.body.appendChild(e);
+    window.addEventListener("error",x=>{e.style.display="block";e.textContent="JavaScript error: "+x.message});
+    try{(new Function(${js}))()}catch(x){e.style.display="block";e.textContent="JavaScript error: "+x.message}
+  <\/script>`;
+  if(/<!doctype|<html[\s>]/i.test(hv)){
+    let d=hv;
+    d=/<\/head>/i.test(d)?d.replace(/<\/head>/i,style+"</head>"):style+d;
+    d=/<\/body>/i.test(d)?d.replace(/<\/body>/i,runner+"</body>"):d+runner;
+    return d;
+  }
+  return "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"+style+"</head><body>"+hv+runner+"</body></html>";
+}
+function run(){P.srcdoc=doc();status.textContent="Preview updated";setTimeout(()=>status.textContent="Updates as you type",800)}
+function schedule(){clearTimeout(timer);status.textContent="Updating…";timer=setTimeout(run,260)}
+function reset(){H.value=S_H;C.value=S_C;J.value=S_J;run()}
+[H,C,J].forEach(x=>x.addEventListener("input",schedule));document.getElementById("run").addEventListener("click",run);document.getElementById("reset").addEventListener("click",reset);reset();
+</script></body></html>

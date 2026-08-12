@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Editor Orientation</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#F2F4F7;color:#233247;}
+.lab{background:transparent;padding:0}
+.notice{display:none;margin:0 0 14px;padding:13px 16px;border:1px solid #76E5A0;background:#ECFAF1;color:#136B37;border-radius:10px;font-size:14px}
+.notice.show{display:block}
+.notice strong{font-weight:800}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.card{background:white;border:1px solid #D9E1EC;border-radius:13px;overflow:hidden;box-shadow:0 2px 5px rgba(15,27,49,.05)}
+.card-head{height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-bottom:1px solid #D9E1EC;font-weight:800;color:#17365D}
+.actions{display:flex;gap:9px}
+button{font:inherit}
+.action{border:1px solid #D9E1EC;border-radius:8px;padding:9px 14px;font-weight:700;cursor:pointer}
+.reset{background:#F6F8FB;color:#667890}
+.run{background:#17365D;color:white;border-color:#17365D}
+.run:disabled{background:#DCE4EE;color:#95A6BA;border-color:#DCE4EE;cursor:not-allowed}
+.editor-shell{background:#0F1B31;min-height:315px}
+.tabs{display:flex;background:#1D2B43;padding-left:8px}
+.tab{border:0;background:transparent;color:#7F8EA5;padding:13px 20px;font-weight:800;cursor:pointer}
+.tab.active{background:#0F1B31;color:white;border-radius:8px 8px 0 0}
+.pane{display:none;padding:16px 18px}
+.pane.active{display:block}
+textarea{width:100%;height:245px;resize:vertical;border:0;outline:0;background:#0F1B31;color:#E8EEF7;font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:2}
+.preview-body{height:315px;background:white;position:relative}
+#preview{width:100%;height:100%;border:0;background:white;display:none}
+.placeholder{position:absolute;inset:0;display:grid;place-items:center;color:#8EA1BB;font-size:14px;text-align:center;padding:20px}
+.running{display:none;color:#159B48;background:#E9FFF0;border:1px solid #75DEA0;border-radius:6px;padding:3px 8px;font-size:12px;font-weight:700}
+.running.show{display:inline-block}
+.tip{margin:14px 0 0;background:#FFF2BF;border:1px solid #F2D15A;color:#805015;padding:12px 14px;border-radius:9px;font-size:13px}
+@media(max-width:850px){.workspace{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="lab">
+  <div class="notice" id="notice"><strong>Great job!</strong> Your code is running in the output preview.</div>
+  <div class="workspace">
+    <section class="card">
+      <div class="card-head">
+        <span>Code Editor</span>
+        <div class="actions">
+          <button class="action reset" id="resetBtn" type="button">Reset</button>
+          <button class="action run" id="runBtn" type="button">▶ Run Code</button>
+        </div>
+      </div>
+      <div class="editor-shell">
+        <div class="tabs">
+          <button class="tab active" data-tab="html" type="button">HTML</button>
+          <button class="tab" data-tab="css" type="button">CSS</button>
+          <button class="tab" data-tab="js" type="button">JS</button>
+        </div>
+        <div class="pane active" data-pane="html"><textarea id="htmlCode" spellcheck="false"></textarea></div>
+        <div class="pane" data-pane="css"><textarea id="cssCode" spellcheck="false"></textarea></div>
+        <div class="pane" data-pane="js"><textarea id="jsCode" spellcheck="false"></textarea></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <span>Output Preview</span>
+        <span class="running" id="running">✓ Running</span>
+      </div>
+      <div class="preview-body">
+        <div class="placeholder" id="placeholder">Select <strong style="margin:0 4px;">Run Code</strong> to see the output here.</div>
+        <iframe id="preview" title="Code output preview" sandbox="allow-scripts allow-forms allow-modals allow-popups"></iframe>
+      </div>
+    </section>
+  </div>
+  <div class="tip"><strong>Instructions:</strong> Change the heading and paragraph, then use Run and Reset.</div>
+</div>
+
+<script>
+const START_H="<h1>My Web Learning Page</h1>\n<p>I am learning how webpages are built.</p>";
+const START_C="body { font-family: Arial, sans-serif; padding: 24px; }";
+const START_J="";
+
+const H=document.getElementById("htmlCode");
+const C=document.getElementById("cssCode");
+const J=document.getElementById("jsCode");
+const preview=document.getElementById("preview");
+const placeholder=document.getElementById("placeholder");
+const notice=document.getElementById("notice");
+const running=document.getElementById("running");
+const runBtn=document.getElementById("runBtn");
+
+function setStarter(){
+  H.value=START_H;
+  C.value=START_C;
+  J.value=START_J;
+}
+
+function compose(){
+  const hv=H.value;
+  const safeCss=C.value.replace(/<\/style/gi,"<\\/style");
+  const jsLiteral=JSON.stringify(J.value);
+  const styleTag="<style>"+safeCss+"</style>";
+  const runner=`<script>
+    const err=document.createElement("pre");
+    err.style.cssText="display:none;white-space:pre-wrap;background:#fff1f2;color:#9f1239;padding:10px;border:1px solid #fecdd3;border-radius:8px;margin:12px;font:12px/1.4 monospace";
+    document.body.appendChild(err);
+    window.addEventListener("error",e=>{err.style.display="block";err.textContent="JavaScript error: "+e.message});
+    try{(new Function(${jsLiteral}))()}catch(e){err.style.display="block";err.textContent="JavaScript error: "+e.message}
+  <\/script>`;
+  if(/<!doctype|<html[\s>]/i.test(hv)){
+    let d=hv;
+    d=/<\/head>/i.test(d)?d.replace(/<\/head>/i,styleTag+"</head>"):styleTag+d;
+    d=/<\/body>/i.test(d)?d.replace(/<\/body>/i,runner+"</body>"):d+runner;
+    return d;
+  }
+  return "<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"+styleTag+"</head><body>"+hv+runner+"</body></html>";
+}
+
+function markEdited(){
+  runBtn.disabled=false;
+  notice.className="notice";
+  running.className="running";
+}
+
+function run(){
+  preview.srcdoc=compose();
+  preview.style.display="block";
+  placeholder.style.display="none";
+  notice.className="notice show";
+  running.className="running show";
+  runBtn.disabled=true;
+}
+
+function reset(){
+  setStarter();
+  preview.style.display="none";
+  placeholder.style.display="grid";
+  placeholder.innerHTML='Select <strong style="margin:0 4px;">Run Code</strong> to see the output here.';
+  notice.className="notice";
+  running.className="running";
+  runBtn.disabled=false;
+}
+
+document.querySelectorAll(".tab").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".pane").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelector('[data-pane="'+btn.dataset.tab+'"]').classList.add("active");
+  });
+});
+[H,C,J].forEach(x=>x.addEventListener("input",markEdited));
+document.getElementById("runBtn").addEventListener("click",run);
+document.getElementById("resetBtn").addEventListener("click",reset);
+setStarter();
+</script>
+</body>
+</html>
