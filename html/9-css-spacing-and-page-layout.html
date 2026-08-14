@@ -2,13 +2,15 @@
 <html lang="en" id="exe-20260812174205Z7SL84">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="eXeLearning v4.0.3">
+<meta name="generator" content="eXeLearning v0.0.0-nightly-202608061059">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>9. CSS: Spacing and Page Layout | Building a Basic Webpage</title>
 <link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
 <meta name="description" content="Beginner-friendly self-paced module that builds one webpage with HTML, CSS, and JavaScript.">
 <script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"202608121742054FVHKB","packageTitle":"Building a Basic Webpage","language":"en"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
 <script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../idevices/word-search/word-search.js"></script><link rel="stylesheet" href="../idevices/word-search/word-search.css">
+<script src="../idevices/beforeafter/beforeafter.js"></script><link rel="stylesheet" href="../idevices/beforeafter/beforeafter.css">
 <link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css">
 </head>
 <body class="exe-export exe-web-site">
@@ -21,13 +23,13 @@
 </li>
 <li> <a href="../html/3-html-meet-the-code-editor.html" class="no-ch">3. HTML: Meet the Code Editor</a>
 </li>
-<li> <a href="../html/4-html-basic-document-structure.html" class="no-ch">4. HTML: Basic Document Structure</a>
+<li> <a href="../html/4-html-the-basics.html" class="no-ch">4. HTML: The Basics</a>
 </li>
-<li> <a href="../html/5-html-headings-paragraphs-links-and-images.html" class="no-ch">5. HTML: Headings, Paragraphs, Links, and Images</a>
+<li> <a href="../html/5-html-basic-document-structure.html" class="no-ch">5. HTML: Basic Document Structure</a>
 </li>
 <li> <a href="../html/6-html-guided-practice-knowledge-check.html" class="no-ch">6. HTML: Guided Practice + Knowledge Check</a>
 </li>
-<li> <a href="../html/7-css-understanding-and-connecting-styles.html" class="no-ch">7. CSS: Understanding and Connecting Styles</a>
+<li> <a href="../html/7-css-introduction-to-styles-and-connetions.html" class="no-ch">7. CSS: Introduction to Styles and Connetions</a>
 </li>
 <li> <a href="../html/8-css-colors-and-fonts.html" class="no-ch">8. CSS: Colors and Fonts</a>
 </li>
@@ -62,14 +64,14 @@
 <div class="package-header"><p class="package-title">Building a Basic Webpage</p></div>
 <div class="page-header"><h1 class="page-title sr-av">9. CSS: Spacing and Page Layout</h1></div>
 </header><div id="page-content-20260812174205Z7SL84" class="page-content">
-<article id="202608121742055YSGST" class="box">
+<article id="block-mst6b0rs-min2p7qw4" class="box">
 <header class="box-head no-icon">
 <h1 class="box-title">CSS Basics</h1>
 </header>
 <div class="box-content">
-<div id="202608121742055KCNP3" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;202608121742055KCNP3&quot;}">
-<div class="exe-text-template"><div class="textIdeviceContent"><div class="exe-text-activity"><div>
-<style>
+<div id="idevice-mst6b0rs-s92dmotpy" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mst6b0rs-s92dmotpy&quot;}">
+<div class="exe-text-template">
+    <style>
 .figma-page-content{font-family:Arial,Helvetica,sans-serif!important;color:#233247!important;line-height:1.62!important;max-width:100%!important;margin:0!important}
 .figma-page-content .figma-screen-title{font-size:30px!important;line-height:1.15!important;color:#17365D!important;margin:0 0 22px!important;font-weight:800!important}
 .figma-page-content .figma-reading-card,
@@ -91,24 +93,122 @@
 .figma-page-content .figma-code-lab{height:660px!important}
 @media(max-width:850px){.figma-page-content .figma-info-grid{grid-template-columns:1fr!important}}
 </style>
-<div class="figma-page-content" style="font-family:Arial,Helvetica,sans-serif;line-height:1.62;color:#0f172a;max-width:1080px;margin:0 auto;">
+<div class="figma-page-content" style="font-family: Arial,Helvetica,sans-serif; line-height: 1.62; color: #0f172a; max-width: 1080px; margin: 0 auto;">
 <h1 class="figma-screen-title">Add Spacing and Page Layout</h1>
-<div class="figma-reading-card"><p style="font-size:17px;">Spacing and layout turn a collection of elements into an organized page. Margin creates space outside an element, while padding creates space inside its border. The box-sizing property can make widths easier to predict. In the project, generous padding keeps text away from card edges, while margins separate one section from another. These choices create visual grouping without adding extra HTML.</p><p>Layout also needs to respond to available space. A max-width keeps long text from stretching across an extremely wide monitor, while automatic left and right margins center the content. Images can use width: 100% and height: auto so they scale with their container. A media query can reduce padding on a narrow screen. Responsive design does not require a completely different mobile page; it adapts the same content.</p><p>The CSS below also adds rounded corners and a subtle shadow to the content sections. Those details are optional decoration, but the spacing and responsive width directly support usability. Try not to solve layout with repeated &lt;br&gt; elements or spaces in HTML. Use CSS because spacing is a presentation decision.</p></div>
-<div class="figma-info-grid" style="">
-<div style="flex:1 1 440px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:13px;padding:17px 19px;">
-<h2 style="font-size:20px;margin:0 0 8px;">Key ideas</h2><ul style="margin:0;padding-left:22px;"><li>Margin = outside space; padding = inside space.</li><li>Use max-width to keep reading lines comfortable.</li><li>Make images flexible instead of forcing a large fixed width.</li><li>Use media queries for targeted narrow-screen adjustments.</li></ul>
+<div class="figma-reading-card">
+<p style="font-size: 17px;">Spacing and layout turn a collection of elements into an organized page. Margin creates space outside an element, while padding creates space inside its border. The box-sizing property can make widths easier to predict. In the project, generous padding keeps text away from card edges, while margins separate one section from another. These choices create visual grouping without adding extra HTML.</p>
+<p>Layout also needs to respond to available space. A max-width keeps long text from stretching across an extremely wide monitor, while automatic left and right margins center the content. Images can use width: 100% and height: auto so they scale with their container. A media query can reduce padding on a narrow screen. Responsive design does not require a completely different mobile page; it adapts the same content.</p>
+<p>The CSS below also adds rounded corners and a subtle shadow to the content sections. Those details are optional decoration, but the spacing and responsive width directly support usability. Try not to solve layout with repeated <br> elements or spaces in HTML. Use CSS because spacing is a presentation decision.</p>
 </div>
-<div style="flex:1 1 360px;background:#ecfeff;border:1px solid #99f6e4;border-radius:13px;padding:17px 19px;">
-<h2 style="font-size:20px;margin:0 0 8px;color:#115e59;">Your task</h2><p style="margin:0;">Change the section padding, maximum content width, and mobile breakpoint. Resize the browser and watch the same HTML adapt.</p>
+<div class="figma-info-grid">
+<div style="flex: 1 1 440px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 13px; padding: 17px 19px;">
+<h2 style="font-size: 20px; margin: 0 0 8px;">Key ideas</h2>
+<ul style="margin: 0; padding-left: 22px;">
+<li>Margin = outside space; padding = inside space.</li>
+<li>Use max-width to keep reading lines comfortable.</li>
+<li>Make images flexible instead of forcing a large fixed width.</li>
+<li>Use media queries for targeted narrow-screen adjustments.</li>
+</ul>
+</div>
+<div style="flex: 1 1 360px; background: #ecfeff; border: 1px solid #99f6e4; border-radius: 13px; padding: 17px 19px;">
+<h2 style="font-size: 20px; margin: 0 0 8px; color: #115e59;">Your task</h2>
+<p style="margin: 0;">Complete the activity below using what you know about margins and padding so far before moving onto the next text.</p>
 </div>
 </div>
-<div style="margin:22px 0;"><iframe class="figma-code-lab" loading="lazy" sandbox="allow-scripts allow-forms allow-modals allow-popups" src="../content/resources/embeds/screen-09-editor-01.html" style="width:100%;height:680px;border:0;border-radius:14px;background:#f8fafc;display:block;" title="Interactive code editor: CSS Layout"></iframe></div>
-<details style="margin:22px 0;border:1px solid #cbd5e1;border-radius:12px;padding:14px 16px;background:white;">
-<summary style="cursor:pointer;font-weight:700;color:#0f766e;">Quick check: Which property creates space between content and its border?</summary>
-<p style="margin:12px 0 0;">Padding creates space inside the border.</p>
+<div class="figma-footer-line" style="padding-top: 13px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px;">Basics in Webpage Making · Text 1 of 2 · Screen 9 of 20</div>
+</div>
+</div>
+</div>
+</div>
+</article><article id="block-mst6tvma-i7jexqd3s" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Word search</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-1786726506321-b6lrhm7m8" class="idevice_node word-search" data-idevice-path="../idevices/word-search/" data-idevice-type="word-search">
+<div class="sopa-IDevice">
+        <div class="game-evaluation-ids js-hidden" data-id="idevice-1786726506321-b6lrhm7m8" data-evaluationb="false" data-evaluationid="576b5203-7343-4660-a997-622557d71129"></div>
+                <div class="sopa-version js-hidden">2</div>
+                 <div class="sopa-instructions"><p>Find the hidden words.</p></div>
+                <div class="sopa-feedback-game"></div>              
+                <div class="sopa-DataGame js-hidden">%E9%B0%E6%EB%E2%F7%D5%F3%FF%F7%B0%A8%B0%C1%FD%E2%F3%B0%BE%B0%FB%FC%E1%E6%E0%E7%F1%E6%FB%FD%FC%E1%B0%A8%B0%AE%E2%AC%D4%FB%FC%F6%B2%E6%FA%F7%B2%FA%FB%F6%F6%F7%FC%B2%E5%FD%E0%F6%E1%BC%AE%BD%E2%AC%B0%BE%B0%E1%FA%FD%E5%DF%FB%FC%FB%FF%FB%E8%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%FB%E6%FB%FC%F7%E0%F3%E0%EB%B0%A8%E9%B0%E1%FA%FD%E5%D1%FE%E7%F7%B0%A8%F4%F3%FE%E1%F7%BE%B0%F1%FE%E7%F7%D5%F3%FF%F7%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%D1%FE%E7%F7%B0%A8%A6%A2%BE%B0%E1%FA%FD%E5%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%F1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%B0%BE%B0%FF%F7%E1%E1%F3%F5%F7%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%B0%EF%BE%B0%E5%FD%E0%F6%E1%D5%F3%FF%F7%B0%A8%C9%E9%B0%E5%FD%E0%F6%B0%A8%B0%C2%F3%F6%F6%FB%FC%F5%B0%BE%B0%F6%F7%F4%FB%FC%FB%E6%FB%FD%FC%B0%A8%B0%DB%FC%FC%F7%E0%FF%FD%E1%E6%B2%E1%E2%F3%F1%FB%FC%F5%B2%FD%E2%E6%FB%FD%FC%BE%B2%FB%E1%B2%E2%F3%E0%E6%B2%FD%F4%B2%E6%FA%F7%B2%F1%FD%FC%E6%F7%FC%E6%B2%F0%FD%EA%BC%B0%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A3%A2%A2%EF%BE%E9%B0%E5%FD%E0%F6%B0%A8%B0%DF%F3%E0%F5%FB%FC%B0%BE%B0%F6%F7%F4%FB%FC%FB%E6%FB%FD%FC%B0%A8%B0%D0%F7%E6%E5%F7%F7%FC%B2%E6%FA%F7%B2%E2%F3%F6%F6%FB%FC%F5%B2%F3%FC%F6%B2%E6%FA%F7%B2%FF%F3%E0%F5%FB%FC%BE%B2%F1%F3%FC%B2%F0%F7%B2%E0%FD%E7%FC%F6%F7%F6%BC%B0%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A3%A2%A2%EF%BE%E9%B0%E5%FD%E0%F6%B0%A8%B0%DF%F3%E0%F5%FB%FC%B0%BE%B0%F6%F7%F4%FB%FC%FB%E6%FB%FD%FC%B0%A8%B0%DD%E7%E6%F7%E0%FF%FD%E1%E6%B2%E1%E2%F3%F1%FB%FC%F5%B2%FD%E2%E6%FB%FD%FC%BC%B0%BE%B0%EA%B0%A8%A2%BE%B0%EB%B0%A8%A2%BE%B0%F3%E7%E6%FA%FD%E0%B0%A8%B0%B0%BE%B0%F3%FE%E6%B0%A8%B0%B0%BE%B0%E7%E0%FE%B0%A8%B0%B0%BE%B0%F3%E7%F6%FB%FD%B0%A8%B0%B0%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F5%F7%C1%FA%FD%E5%B0%A8%A3%A2%A2%EF%CF%BE%B0%FB%E1%C1%F1%FD%E0%FF%B0%A8%A2%BE%B0%E6%F7%EA%E6%D0%E7%E6%E6%FD%FC%C1%F1%FD%E0%FF%B0%A8%B0%C1%F3%E4%F7%B2%E1%F1%FD%E0%F7%B0%BE%B0%E0%F7%E2%F7%F3%E6%D3%F1%E6%FB%E4%FB%E6%EB%B0%A8%E6%E0%E7%F7%BE%B0%E5%F7%FB%F5%FA%E6%F7%F6%B0%A8%A3%A2%A2%BE%B0%E6%F7%EA%E6%D4%F7%F7%F6%D0%F3%F1%F9%B0%A8%B0%B0%BE%B0%E6%F7%EA%E6%D3%F4%E6%F7%E0%B0%A8%B0%B7%A1%D1%F6%FB%E4%B7%A0%A2%F1%FE%F3%E1%E1%B7%A1%D6%B7%A0%A0%F4%FB%F5%FF%F3%BF%F4%FD%FD%E6%F7%E0%BF%FE%FB%FC%F7%B7%A0%A0%B7%A0%A2%E1%E6%EB%FE%F7%B7%A1%D6%B7%A0%A0%E2%F3%F6%F6%FB%FC%F5%BF%E6%FD%E2%B7%A1%D3%B7%A0%A2%A3%A1%E2%EA%B7%A1%D0%B7%A0%A2%F0%FD%E0%F6%F7%E0%BF%E6%FD%E2%B7%A1%D3%B7%A0%A2%A3%E2%EA%B7%A0%A2%E1%FD%FE%FB%F6%B7%A0%A2%B7%A0%A1%F7%A0%F7%AA%F4%A2%B7%A1%D0%B7%A0%A2%F1%FD%FE%FD%E0%B7%A1%D3%B7%A0%A2%B7%A0%A1%A4%A6%A5%A6%AA%F0%B7%A1%D0%B7%A0%A2%F4%FD%FC%E6%BF%E1%FB%E8%F7%B7%A1%D3%B7%A0%A2%A3%A1%E2%EA%B7%A1%D0%B7%A0%A0%B7%A1%D7%D0%F3%E1%FB%F1%E1%B7%A0%A2%FB%FC%B7%A0%A2%C5%F7%F0%E2%F3%F5%F7%B7%A0%A2%DF%F3%F9%FB%FC%F5%B7%A0%A2%B7%D0%A5%B7%A0%A2%D3%F1%E6%FB%E4%FB%E6%EB%B7%A0%A2%A3%B7%A0%A2%FD%F4%B7%A0%A2%A0%B7%A0%A2%B7%D0%A5%B7%A0%A2%C1%F1%E0%F7%F7%FC%B7%A0%A2%AB%B7%A0%A2%FD%F4%B7%A0%A2%A0%A2%B7%A1%D1%BD%F6%FB%E4%B7%A1%D7%B0%BE%B0%F4%F7%F7%F6%D0%F3%F1%F9%B0%A8%F4%F3%FE%E1%F7%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F8%F7%D4%D0%B0%A8%A3%A2%A2%BE%B0%E4%F7%E0%E1%FB%FD%FC%B0%A8%A3%BE%B0%E2%F7%E0%F1%F7%FC%E6%F3%F8%F7%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%A3%A2%A2%BE%B0%E6%FB%FF%F7%B0%A8%A2%BE%B0%F6%FB%F3%F5%FD%FC%F3%FE%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%E0%F7%E4%F7%E0%E1%F7%E1%B0%A8%F4%F3%FE%E1%F7%BE%B0%E1%FA%FD%E5%C0%F7%E1%FD%FE%E4%F7%B0%A8%E6%E0%E7%F7%BE%B0%F7%E4%F3%FE%E7%F3%E6%FB%FD%FC%B0%A8%F4%F3%FE%E1%F7%BE%B0%F7%E4%F3%FE%E7%F3%E6%FB%FD%FC%DB%D6%B0%A8%B0%A7%A5%A4%F0%A7%A0%A2%A1%BF%A5%A1%A6%A1%BF%A6%A4%A4%A2%BF%F3%AB%AB%A5%BF%A4%A0%A0%A7%A7%A5%F6%A5%A3%A3%A0%AB%B0%BE%B0%FB%F6%B0%A8%B0%FB%F6%F7%E4%FB%F1%F7%BF%A3%A5%AA%A4%A5%A0%A4%A7%A2%A4%A1%A0%A3%BF%F0%A4%FE%E0%FA%FF%A5%FF%AA%B0%BE%B0%FF%E1%F5%E1%B0%A8%E9%B0%FF%E1%F5%C0%F7%E2%FE%EB%B0%A8%B0%C0%F7%E2%FE%EB%B0%BE%B0%FF%E1%F5%D7%FC%E6%F7%E0%D1%FD%F6%F7%B0%A8%B0%D7%FC%E6%F7%E0%B2%E6%FA%F7%B2%F3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B0%BE%B0%FF%E1%F5%D7%E0%E0%FD%E0%D1%FD%F6%F7%B0%A8%B0%C6%FA%F7%B2%F3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B2%FB%E1%B2%FC%FD%E6%B2%F1%FD%E0%E0%F7%F1%E6%B0%BE%B0%FF%E1%F5%D1%FE%E7%F7%B0%A8%B0%D1%FD%FD%FE%B3%B2%C6%FA%F7%B2%F1%FE%E7%F7%B2%FB%E1%A8%B0%BE%B0%FF%E1%F5%D1%FD%F6%F7%D3%F1%F1%F7%E1%E1%B0%A8%B0%D3%F1%F1%F7%E1%E1%B2%F1%FD%F6%F7%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%C1%E6%F3%E0%E6%B0%A8%B0%D1%FE%FB%F1%F9%B2%FA%F7%E0%F7%B2%E6%FD%B2%E2%FE%F3%EB%B0%BE%B0%FF%E1%F5%DA%FB%E6%E1%B0%A8%B0%DA%FB%E6%E1%B0%BE%B0%FF%E1%F5%C1%F1%FD%E0%F7%B0%A8%B0%C1%F1%FD%E0%F7%B0%BE%B0%FF%E1%F5%C5%F7%FB%F5%FA%E6%B0%A8%B0%C5%F7%FB%F5%FA%E6%B0%BE%B0%FF%E1%F5%DF%FB%FC%FB%FF%FB%E8%F7%B0%A8%B0%DF%FB%FC%FB%FF%FB%E8%F7%B0%BE%B0%FF%E1%F5%DF%F3%EA%FB%FF%FB%E8%F7%B0%A8%B0%DF%F3%EA%FB%FF%FB%E8%F7%B0%BE%B0%FF%E1%F5%C6%FB%FF%F7%B0%A8%B0%C6%FB%FF%F7%B2%DE%FB%FF%FB%E6%B2%BA%FF%FF%A8%E1%E1%BB%B0%BE%B0%FF%E1%F5%D4%E7%FE%FE%C1%F1%E0%F7%F7%FC%B0%A8%B0%D4%E7%FE%FE%B2%C1%F1%E0%F7%F7%FC%B0%BE%B0%FF%E1%F5%D7%EA%FB%E6%D4%E7%FE%FE%C1%F1%E0%F7%F7%FC%B0%A8%B0%D7%EA%FB%E6%B2%D4%E7%FE%FE%B2%C1%F1%E0%F7%F7%FC%B0%BE%B0%FF%E1%F5%DC%E7%FF%C3%E7%F7%E1%E6%FB%FD%FC%E1%B0%A8%B0%DC%E7%FF%F0%F7%E0%B2%FD%F4%B2%E3%E7%F7%E1%E6%FB%FD%FC%E1%B0%BE%B0%FF%E1%F5%DC%FD%DB%FF%F3%F5%F7%B0%A8%B0%DC%FD%B2%E2%FB%F1%E6%E7%E0%F7%B2%E3%E7%F7%E1%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%C1%E7%F1%F1%F7%E1%E1%F7%E1%B0%A8%B0%C0%FB%F5%FA%E6%B3%B2%EE%B2%D7%EA%F1%F7%FE%FE%F7%FC%E6%B3%B2%EE%B2%D5%E0%F7%F3%E6%B3%B2%EE%B2%C4%F7%E0%EB%B2%F5%FD%FD%F6%B3%B2%EE%B2%C2%F7%E0%F4%F7%F1%E6%B3%B0%BE%B0%FF%E1%F5%D4%F3%FB%FE%E7%E0%F7%E1%B0%A8%B0%DB%E6%B2%E5%F3%E1%B2%FC%FD%E6%B2%E6%FA%F3%E6%B3%B2%EE%B2%DB%FC%F1%FD%E0%E0%F7%F1%E6%B3%B2%EE%B2%DC%FD%E6%B2%F1%FD%E0%E0%F7%F1%E6%B3%B2%EE%B2%C1%FD%E0%E0%EB%B3%B2%EE%B2%D7%E0%E0%FD%E0%B3%B0%BE%B0%FF%E1%F5%C6%E0%EB%D3%F5%F3%FB%FC%B0%A8%B0%CB%FD%E7%B2%FC%F7%F7%F6%B2%F3%E6%B2%FE%F7%F3%E1%E6%B2%B7%E1%B7%B2%FD%F4%B2%F1%FD%E0%E0%F7%F1%E6%B2%F3%FC%E1%E5%F7%E0%E1%B2%E6%FD%B2%F5%F7%E6%B2%E6%FA%F7%B2%FB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%BC%B2%C2%FE%F7%F3%E1%F7%B2%E6%E0%EB%B2%F3%F5%F3%FB%FC%BC%B0%BE%B0%FF%E1%F5%C1%F1%FD%E0%F7%C1%F1%FD%E0%FF%B0%A8%B0%C6%FA%F7%B2%E1%F1%FD%E0%F7%B2%F1%F3%FC%B5%E6%B2%F0%F7%B2%E1%F3%E4%F7%F6%B2%F0%F7%F1%F3%E7%E1%F7%B2%E6%FA%FB%E1%B2%E2%F3%F5%F7%B2%FB%E1%B2%FC%FD%E6%B2%E2%F3%E0%E6%B2%FD%F4%B2%F3%B2%C1%D1%DD%C0%DF%B2%E2%F3%F1%F9%F3%F5%F7%BC%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%C1%F1%FD%E0%F7%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E1%F3%E4%F7%B2%E6%FA%F7%B2%E1%F1%FD%E0%F7%B2%FD%FC%F1%F7%B3%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E1%F3%E4%F7%B2%FD%FC%F1%F7%B0%BE%B0%FF%E1%F5%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%A8%B0%DB%FC%F4%FD%E0%FF%F3%E6%FB%FD%FC%B0%BE%B0%FF%E1%F5%DD%FC%FE%EB%C1%F3%E4%F7%D3%E7%E6%FD%B0%A8%B0%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%E5%FB%FE%FE%B2%F0%F7%B2%E1%F3%E4%F7%F6%B2%F3%F4%E6%F7%E0%B2%F7%F3%F1%FA%B2%E3%E7%F7%E1%E6%FB%FD%FC%BC%B2%CB%FD%E7%B2%F1%F3%FC%B2%FD%FC%FE%EB%B2%E2%FE%F3%EB%B2%FD%FC%F1%F7%BC%B0%BE%B0%FF%E1%F5%C1%F3%E4%F7%D3%E7%E6%FD%B0%A8%B0%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%E5%FB%FE%FE%B2%F0%F7%B2%F3%E7%E6%FD%FF%F3%E6%FB%F1%F3%FE%FE%EB%B2%E1%F3%E4%F7%F6%B2%F3%F4%E6%F7%E0%B2%F7%F3%F1%FA%B2%E3%E7%F7%E1%E6%FB%FD%FC%BC%B0%BE%B0%FF%E1%F5%C1%F7%E4%F7%E0%F3%FE%C1%F1%FD%E0%F7%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%E1%F3%E4%F7%B2%E6%FA%F7%B2%E1%F1%FD%E0%F7%B2%F3%E1%B2%FF%F3%FC%EB%B2%E6%FB%FF%F7%E1%B2%F3%E1%B2%EB%FD%E7%B2%E5%F3%FC%E6%B0%BE%B0%FF%E1%F5%CB%FD%E7%DE%F3%E1%E6%C1%F1%FD%E0%F7%B0%A8%B0%C6%FA%F7%B2%FE%F3%E1%E6%B2%E1%F1%FD%E0%F7%B2%E1%F3%E4%F7%F6%B2%FB%E1%B0%BE%B0%FF%E1%F5%D3%F1%E6%FB%E6%EB%D1%FD%FF%E2%FE%EB%B0%A8%B0%CB%FD%E7%B2%FA%F3%E4%F7%B2%F3%FE%E0%F7%F3%F6%EB%B2%F6%FD%FC%F7%B2%E6%FA%FB%E1%B2%F3%F1%E6%FB%E4%FB%E6%EB%BC%B0%BE%B0%FF%E1%F5%C2%FE%F3%EB%C1%F7%E4%F7%E0%F3%FE%C6%FB%FF%F7%E1%B0%A8%B0%CB%FD%E7%B2%F1%F3%FC%B2%F6%FD%B2%E6%FA%FB%E1%B2%F3%F1%E6%FB%E4%FB%E6%EB%B2%F3%E1%B2%FF%F3%FC%EB%B2%E6%FB%FF%F7%E1%B2%F3%E1%B2%EB%FD%E7%B2%E5%F3%FC%E6%B0%BE%B0%FF%E1%F5%D1%FE%FD%E1%F7%B0%A8%B0%D1%FE%FD%E1%F7%B0%BE%B0%FF%E1%F5%C2%FD%FB%FC%E6%E1%B0%A8%B0%E2%FD%FB%FC%E6%E1%B0%BE%B0%FF%E1%F5%D3%E7%F6%FB%FD%B0%A8%B0%D3%E7%F6%FB%FD%B0%BE%B0%FF%E1%F5%C5%FD%E0%F6%E1%D4%FB%FC%F6%B0%A8%B0%CB%FD%E7%B2%F4%FD%E7%FC%F6%B2%F3%FE%FE%B2%E6%FA%F7%B2%E5%FD%E0%F6%E1%BC%B2%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%FB%E1%B2%B7%E1%BC%B0%BE%B0%FF%E1%F5%D7%FC%F6%D5%F3%FF%F7%C1%F1%FD%E0%F7%B0%A8%B0%C2%FE%F7%F3%E1%F7%B2%E1%E6%F3%E0%E6%B2%E2%FE%F3%EB%FB%FC%F5%B2%F4%FB%E0%E1%E6%BC%BC%BC%B0%BE%B0%FF%F5%E1%D5%F3%FF%F7%C1%E6%F3%E0%E6%B0%A8%B0%C6%FA%F7%B2%F5%F3%FF%F7%B2%FA%F3%E1%B2%F3%FE%E0%F7%F3%F6%EB%B2%E1%E6%F3%E0%E6%F7%F6%BC%B0%BE%B0%FF%E1%F5%CB%FD%E7%C1%F1%FD%E0%F7%B0%A8%B0%C1%F1%FD%E0%F7%B0%BE%B0%FF%E1%F5%D7%FC%F6%C6%FB%FF%F7%B0%A8%B0%D5%F3%FF%F7%B2%E6%FB%FF%F7%B2%FB%E1%B2%FD%E4%F7%E0%BC%B2%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%FB%E1%B2%B7%E1%BC%B0%BE%B0%FF%E1%F5%D7%FC%F6%B0%A8%B0%D4%FB%FC%FB%E1%FA%B0%BE%B0%FF%E1%F5%D7%FC%F6%D5%F3%FF%F7%DF%B0%A8%B0%CB%FD%E7%B2%F4%FB%FC%FB%E1%FA%F7%F6%B2%E6%FA%F7%B2%F5%F3%FF%F7%BC%B2%CB%FD%E7%E0%B2%E1%F1%FD%E0%F7%B2%FB%E1%B2%B7%E1%BC%B0%BE%B0%FF%E1%F5%C7%FC%F1%FD%FF%E2%FE%F7%E6%F7%F6%D3%F1%E6%FB%E4%FB%E6%EB%B0%A8%B0%DB%FC%F1%FD%FF%E2%FE%F7%E6%F7%B2%F3%F1%E6%FB%E4%FB%E6%EB%B0%BE%B0%FF%E1%F5%C1%E7%F1%F1%F7%E1%E1%F4%E7%FE%D3%F1%E6%FB%E4%FB%E6%EB%B0%A8%B0%D3%F1%E6%FB%E4%FB%E6%EB%A8%B2%C2%F3%E1%E1%F7%F6%BC%B2%C1%F1%FD%E0%F7%A8%B2%B7%E1%B0%BE%B0%FF%E1%F5%C7%FC%E1%E7%F1%F1%F7%E1%E1%F4%E7%FE%D3%F1%E6%FB%E4%FB%E6%EB%B0%A8%B0%D3%F1%E6%FB%E4%FB%E6%EB%A8%B2%DC%FD%E6%B2%E2%F3%E1%E1%F7%F6%BC%B2%C1%F1%FD%E0%F7%A8%B2%B7%E1%B0%BE%B0%FF%E1%F5%DF%F3%FC%EB%C5%FD%E0%F6%B0%A8%B0%C6%E0%EB%B2%E5%FB%E6%FA%B2%F4%F7%E5%F7%E0%B2%E5%FD%E0%F6%E1%B0%BE%B0%FF%E1%F5%C6%EB%E2%F7%D5%F3%FF%F7%B0%A8%B0%C5%FD%E0%F6%B2%E1%F7%F3%E0%F1%FA%B0%EF%EF</div>
+                
+                
+                <div class="sopa-extra-content"><div class="figma-footer-line" style="padding-top: 13px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px;">Basics in Webpage Making · Activity 1 of 2 · Screen 9 of 20</div></div>
+                <div class="sopa-bns js-hidden">Your browser is not compatible with this tool.</div>
+                </div> 
+</div>
+</div>
+</article><article id="block-mst6jb51-ez4s00ksn" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Before/After</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-1786726013220-bqd30w469" class="idevice_node beforeafter" data-idevice-path="../idevices/beforeafter/" data-idevice-type="beforeafter">
+<div class="beforeafter-IDevice"><div class="beforeafter-instructions gameQP-instructions"><p>Slide to reveal the differences between what a webpage looks like with and without its padding, margins, and borders.</p></div><div class="beforeafter-DataGame js-hidden">{"typeGame":"BeforeAfter","author":"","instructions":"<p>Slide to reveal the differences between what a webpage looks like with and without its padding, margins, and borders.</p>","isScorm":0,"textButtonScorm":"Save score","repeatActivity":true,"itinerary":{"showClue":false,"clueGame":"","percentageClue":40,"showCodeAccess":false,"codeAccess":"","messageCodeAccess":""},"weighted":100,"cardsGame":[{"url":"../content/resources/wikipediaBorders.PNG","author":"","alt":"","eText":"Wikipedia with Padding, Borders, or Margins","urlBk":"../content/resources/wikipediaNone.PNG","authorBk":"","altBk":"","eTextBk":"Wikipedia without Padding, Borders, or Margins","description":"Wikipedia With and Without Spacing Essentials","position":"50","vertical":false}],"textAfter":"%3Cdiv%20class%3D%22figma-footer-line%22%20style%3D%22padding-top%3A%2013px%3B%20border-top%3A%201px%20solid%20%23e2e8f0%3B%20color%3A%20%2364748b%3B%20font-size%3A%2013px%3B%22%3EBasics%20in%20Webpage%20Making%20%B7%20Activity%202%20of%202%20%B7%20Screen%209%20of%2020%3C/div%3E","version":2,"evaluation":false,"evaluationID":"576b5203-7343-4660-a997-622557d71129","id":"idevice-1786726013220-bqd30w469","msgs":{"msgSubmit":"Submit","msgClue":"Cool! The clue is:","msgCodeAccess":"Access code","msgInformationLooking":"Cool! The information you were looking for","msgMinimize":"Minimize","msgMaximize":"Maximize","msgFullScreen":"Full Screen","msgExitFullScreen":"Exit Full Screen","msgNoImage":"No picture question","msgAuthor":"Authorship","msgAfterImage":"After image","msgBeforeImage":"Before image","msgNext":"Next","msgPrevious":"Previous","msgImage":"Image","msgScoreScorm":"The score can't be saved because this page is not part of a SCORM package.","msgQuestion":"Question","msgOnlySaveScore":"You can only save the score once!","msgOnlySave":"You can only save once","msgInformation":"Information","msgOnlySaveAuto":"Your score will be saved after each question. You can only play once.","msgSaveAuto":"Your score will be automatically saved after each question.","msgYouScore":"Your score","msgSeveralScore":"You can save the score as many times as you want","msgYouLastScore":"The last score saved is","msgActityComply":"You have already done this activity.","msgPlaySeveralTimes":"You can do this activity as many times as you want","msgUncompletedActivity":"Incomplete activity","msgSuccessfulActivity":"Activity: Passed. Score: %s","msgUnsuccessfulActivity":"Activity: Not passed. Score: %s","msgTypeGame":"Before/After","msgPlayStart":"Click here to play"}}</div><a href="../content/resources/wikipediaBorders.PNG" class="js-hidden beforeafter-LinkImages">0</a><a href="../content/resources/wikipediaNone.PNG" class="js-hidden beforeafter-LinkImagesBack">0</a><div class="game-evaluation-ids js-hidden" data-id="idevice-1786726013220-bqd30w469" data-evaluationb="false" data-evaluationid="576b5203-7343-4660-a997-622557d71129"></div><div class="beforeafter-extra-content"><div class="figma-footer-line" style="padding-top: 13px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px;">Basics in Webpage Making · Activity 2 of 2 · Screen 9 of 20</div></div><div class="beforeafter-bns js-hidden">Your browser is not compatible with this tool.</div></div>
+</div>
+</div>
+</article><article id="block-mst6b4g0-g898n8md4" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">CSS Basics</h1>
+</header>
+<div class="box-content">
+<div id="idevice-mst6b4g0-ybrgvikaf" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mst6b4g0-ybrgvikaf&quot;}">
+<div class="exe-text-template">
+    <style>
+.figma-page-content{font-family:Arial,Helvetica,sans-serif!important;color:#233247!important;line-height:1.62!important;max-width:100%!important;margin:0!important}
+.figma-page-content .figma-screen-title{font-size:30px!important;line-height:1.15!important;color:#17365D!important;margin:0 0 22px!important;font-weight:800!important}
+.figma-page-content .figma-reading-card,
+.figma-page-content .figma-info-card,
+.figma-page-content details{background:#FFFFFF!important;border:1px solid #D9E1EC!important;border-radius:14px!important;box-shadow:0 2px 7px rgba(15,27,49,.06)!important}
+.figma-page-content .figma-reading-card{padding:28px 32px!important;margin-bottom:20px!important}
+.figma-page-content .figma-reading-card p:first-child{margin-top:0!important}
+.figma-page-content .figma-reading-card p:last-child{margin-bottom:0!important}
+.figma-page-content .figma-info-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:18px!important;margin:18px 0 22px!important}
+.figma-page-content .figma-info-grid>div{padding:20px 22px!important;border-radius:13px!important;border:1px solid #D9E1EC!important;box-shadow:0 1px 3px rgba(15,27,49,.04)!important}
+.figma-page-content .figma-info-grid>div:first-child{background:#fff!important}
+.figma-page-content .figma-info-grid>div:last-child{background:#FFF2BF!important;border-color:#F0D36B!important}
+.figma-page-content .figma-info-grid h2{color:#17365D!important;font-size:19px!important}
+.figma-page-content details{padding:15px 18px!important;margin-top:20px!important}
+.figma-page-content summary{color:#17365D!important;font-weight:800!important}
+.figma-page-content a{color:#1B5FD1!important}
+.figma-page-content .figma-footer-line{color:#8798AF!important;border-color:#D9E1EC!important}
+.figma-page-content iframe{max-width:100%!important}
+.figma-page-content .figma-code-lab{height:660px!important}
+@media(max-width:850px){.figma-page-content .figma-info-grid{grid-template-columns:1fr!important}}
+</style>
+<div class="figma-page-content" style="font-family: Arial,Helvetica,sans-serif; line-height: 1.62; color: #0f172a; max-width: 1080px; margin: 0 auto;">
+<h1 class="figma-screen-title">More on Page Layout and Spacing</h1>
+<div class="figma-reading-card">
+<p style="font-size: 17px;">Another thing that can be used is using a flexbox. By applying 'flex' to display, then by applying a 'flex direction,' you can then style it by using things like "<span style="font-family: 'courier new', courier, monospace;">justify-content</span>" and "<span style="font-family: 'courier new', courier, monospace;">align-items</span>", which can be set to center to automatically center things. Justify content goes by major axis and aligning goes by the minor axis, which is set by the flex direction.</p>
+<p style="font-size: 17px;">Another way is by setting margin to auto on its sides. When margin is given two values, it applies the first value is applied to the top and bottom, while the second value is applied to the left and right. For example, '<span style="font-family: 'courier new', courier, monospace;">margin: 0px auto;<span style="font-family: arial, helvetica, sans-serif;">'</span></span> sets the top and bottom to nothing, but automatically setting the left and right to center it. Do note, that the 'auto' keyword does different things to different items, make sure to search what it does in certain contexts or test it out to see what it does.</p>
+<p style="font-size: 17px;">Additionally, when you get more advanced, you can use media queries to set special CSS rules for when things get certain sizes.</p>
+</div>
+<div class="figma-info-grid">
+<div style="flex: 1 1 440px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 13px; padding: 17px 19px;">
+<h2 style="font-size: 20px; margin: 0 0 8px;">Key ideas</h2>
+<ul style="margin: 0; padding-left: 22px;">
+<li>Know how to use margins and padding to your pages benefit.</li>
+<li>Remember to know how to style your content.</li>
+</ul>
+</div>
+<div style="flex: 1 1 360px; background: #ecfeff; border: 1px solid #99f6e4; border-radius: 13px; padding: 17px 19px;">
+<h2 style="font-size: 20px; margin: 0 0 8px; color: #115e59;">Your task</h2>
+<p style="margin: 0;">Change the section padding, maximum content width, and mobile breakpoint. Resize the browser and watch the same HTML adapt.</p>
+</div>
+</div>
+<div style="margin: 22px 0;"><iframe width="100" height="680" style="width: 100%; height: 680px; border: 0; border-radius: 14px; background: #f8fafc; display: block;" class="figma-code-lab" loading="lazy" sandbox="allow-scripts allow-forms allow-modals allow-popups" src="../content/resources/embeds/screen-09-editor-01.html" title="Interactive code editor: CSS Layout"></iframe></div>
+<details style="margin: 22px 0; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px 16px; background: white;">
+<summary style="cursor: pointer; font-weight: bold; color: #0f766e;">Quick check: Which property creates space between content and its border?</summary>
+<p style="margin: 12px 0 0;">Padding creates space inside the border.</p>
 </details>
-<div class="figma-footer-line" style="padding-top:13px;border-top:1px solid #e2e8f0;color:#64748b;font-size:13px;">Basics in Webpage Making · Screen 9 of 20</div>
-</div></div></div></div></div>
+<div class="figma-footer-line" style="padding-top: 13px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px;">Basics in Webpage Making · Text 2 of 2 · Screen 9 of 20</div>
+</div>
+</div>
 </div>
 </div>
 </article>
